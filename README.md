@@ -1,22 +1,11 @@
-SA-MP Docker container [![Docker pulls](https://img.shields.io/docker/pulls/pyrax/samp.svg "Number of Docker pulls")](https://hub.docker.com/r/pyrax/samp/)
+Slaughterfield AD Docker container
 ======================
-
-This repository features some Dockerfiles for setting up a SA-MP server through Docker containers.
-
-## How to use ##
-
-NOTE: Make sure you have Docker installed properly before following any of the steps below. Visit the [official Docker site](https://www.docker.com/) for further instructions on the installation of Docker.
 
 ### Run container
 
 Latest SA-MP version: 
 ```
-docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name testsrv pyrax/samp
-```
-
-Specific version:
-```
-docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name testsrv pyrax/samp:0.3.7r2-1
+docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name testsrv marcoacierno/slaughterfield-ad
 ```
 
 ### Environment variables
