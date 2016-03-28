@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER Pyrax <piranhadev@gmail.com>
+MAINTAINER Pyrax <piranhadev@gmail.com> (original DockerFile), Marco Acierno <marcoaciernoemail@gmail.com> (Slaughterfield DockerFile)
 
 # SA-MP server executable is a x86 application only
 RUN dpkg --add-architecture i386
@@ -27,6 +27,9 @@ COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /usr/local/bin/samp \
  && chmod +x /entrypoint.sh
+
+RUN wget https://raw.githubusercontent.com/marcoacierno/Slaughterfield-AD/stable/s7ad2.pwn \
+ && mv s7ad2.pwn /samp-svr/gamemodes
 
 ENTRYPOINT ["/entrypoint.sh"]
 
