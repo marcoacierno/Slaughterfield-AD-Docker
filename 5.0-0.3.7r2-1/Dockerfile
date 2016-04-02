@@ -52,7 +52,8 @@ RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39
 
 RUN wget https://github.com/samp-incognito/samp-streamer-plugin/releases/download/v2.8/streamer-plugin-2.8.zip \
  && unzip streamer-plugin-2.8.zip -d streamer-plugin-2.8 \
- && mv streamer-plugin-2.8/plugins/streamer.so /samp-svr/plugins/streamer.so
+ && mv streamer-plugin-2.8/plugins/streamer.so /samp-svr/plugins/streamer.so \
+ && rm -rf streamer-plugin-2.8
 
 # Plugin: Whirlpool
 
