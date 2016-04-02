@@ -60,7 +60,7 @@ RUN wget https://github.com/samp-incognito/samp-streamer-plugin/releases/downloa
 RUN wget http://revonline.comuf.com/Whirlpool.so \
  && mv Whirlpool.so /samp-svr/plugins/Whirlpool.so
 
-# Plugin: Whirlpool
+# Plugin: sscanf
 
 RUN wget http://revonline.comuf.com/sscanf.so \
  && mv sscanf.so /samp-svr/plugins/sscanf.so
