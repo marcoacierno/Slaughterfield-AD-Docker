@@ -18,5 +18,5 @@ docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name server --link
 Run MySQL
 
 ```
-docker run --name db -v /path/to/mysql/dump/mysqldb:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=<your_root_password> -d mysql:5.7
+docker run --name db -v /path/to/mysql/dump/mysqldb:/docker-entrypoint-initdb.d -e MYSQL_DATABASE=s7ad -e MYSQL_USER=s7ad -e MYSQL_PASSWORD=<password> -e MYSQL_ROOT_PASSWORD=<your_root_password> -d mysql:5.7
 ```
