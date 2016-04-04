@@ -3,9 +3,16 @@ Slaughterfield AD Docker container
 
 ### Run container
 
-Latest SA-MP version: 
+Latest SA-MP and Gamemode version: 
+
 ```
 docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name server marcoacierno/slaughterfield-ad
+```
+
+To link with MySQL DB 
+
+```
+docker run -d -p 7777:7777/udp -e SAMP_RCON_PASSWORD=secret --name server --link db:db marcoacierno/slaughterfield-ad
 ```
 
 Run MySQL
