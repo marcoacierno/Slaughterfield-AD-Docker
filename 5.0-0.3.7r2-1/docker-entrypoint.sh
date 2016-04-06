@@ -34,6 +34,7 @@ if [ "$1" = 'samp' ]; then
     done
 
     # Write database configuration to slfd_mysql.ini
+    echo "" > samp-svr/scriptfiles/slfd_mysql.ini
     echo "host=$DB_PORT_3306_TCP_ADDR" >> samp-svr/scriptfiles/slfd_mysql.ini
     echo "db=$DB_ENV_MYSQL_DATABASE" >> samp-svr/scriptfiles/slfd_mysql.ini
     echo "user=$DB_ENV_MYSQL_DATABASE" >> samp-svr/scriptfiles/slfd_mysql.ini
