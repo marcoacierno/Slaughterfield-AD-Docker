@@ -11,4 +11,4 @@ services:
       - "7777:7777/udp"
     env_file: /etc/samp-env/.server.env
     depends_on:
-      db
+      - db
