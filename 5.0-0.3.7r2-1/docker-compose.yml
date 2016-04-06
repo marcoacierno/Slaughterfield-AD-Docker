@@ -8,13 +8,13 @@ services:
       - /home/marco/db:/docker-entrypoint-initdb.d
     expose:
       - "3306"
-    links:
-      - server:server
   server:
     image: marcoacierno/slaughterfield-ad:latest
     container_name: server
     ports:
       - "7777:7777/udp"
     env_file: /etc/samp-env/.server.env
+    links:
+      - db:db
     depends_on:
       - db
