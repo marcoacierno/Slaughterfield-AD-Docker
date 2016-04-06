@@ -1,0 +1,14 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    env_file: /etc/samp-env/.db.env
+    volumes:
+      - /home/marco/db:/docker-entrypoint-initdb.d
+  server:
+    image: marcoacierno/slaughterfield-ad:5.0-0.3.7r2-1
+    ports:
+      - "7777:7777/udp"
+    env_file: /etc/samp-env/.server.env
+    depends_on:
+      db
