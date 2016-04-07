@@ -45,13 +45,13 @@ RUN wget https://github.com/marcoacierno/Slaughterfield-AD/raw/develop/gamemodes
 #  && cd 5.0-0.3.7r2-1/linux-plugins/ \
 #  && mv * /samp-svr/plugins/
 
-
 # Plugin: mysql
 
 RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39-3-debian7.tar.gz \
  && mkdir mysql \
  && tar xzf mysql-r39-3-debian7.tar.gz -C mysql \
  && rm -f mysql-r39-3-debian7.tar.gz \
+ && rm -r mysql \
  && mv mysql/plugins/mysql_static.so /samp-svr/plugins/mysql_static.so
 
 # Plugin: streamer
@@ -59,7 +59,8 @@ RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39
 RUN wget https://github.com/samp-incognito/samp-streamer-plugin/releases/download/v2.8/streamer-plugin-2.8.zip \
  && unzip streamer-plugin-2.8.zip -d streamer-plugin-2.8 \
  && mv streamer-plugin-2.8/plugins/streamer.so /samp-svr/plugins/streamer.so \
- && rm -rf streamer-plugin-2.8
+ && rm -rf streamer-plugin-2.8 \
+ && rm -f streamer-plugin-2.8.zip
 
 # Plugin: Whirlpool
 
