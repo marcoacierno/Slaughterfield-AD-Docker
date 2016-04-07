@@ -9,6 +9,7 @@ services:
     expose:
       - "3306"
   server:
+    build: .
     image: marcoacierno/slaughterfield-ad:latest
     container_name: server
     ports:
