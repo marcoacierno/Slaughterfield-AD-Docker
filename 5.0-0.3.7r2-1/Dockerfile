@@ -9,7 +9,7 @@ RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get install -y \
  lib32stdc++6 \
  wget \
- psmisc \ 
+ psmisc \
  unzip
 
 # Download and extract server files
@@ -51,8 +51,8 @@ RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39
  && mkdir mysql \
  && tar xzf mysql-r39-3-debian7.tar.gz -C mysql \
  && rm -f mysql-r39-3-debian7.tar.gz \
- && rm -r mysql \
- && mv mysql/plugins/mysql_static.so /samp-svr/plugins/mysql_static.so
+ && mv mysql/plugins/mysql_static.so /samp-svr/plugins/mysql_static.so \
+ && rm -r mysql
 
 # Plugin: streamer
 
