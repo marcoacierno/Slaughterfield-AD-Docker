@@ -45,31 +45,22 @@ RUN wget https://github.com/marcoacierno/Slaughterfield-AD/raw/develop/gamemodes
 #  && cd 5.0-0.3.7r2-1/linux-plugins/ \
 #  && mv * /samp-svr/plugins/
 
-# Plugin: mysql
+# download plugins
 
 RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39-3-debian7.tar.gz \
  && mkdir mysql \
  && tar xzf mysql-r39-3-debian7.tar.gz -C mysql \
  && rm -f mysql-r39-3-debian7.tar.gz \
  && mv mysql/plugins/mysql_static.so /samp-svr/plugins/mysql_static.so \
- && rm -r mysql
-
-# Plugin: streamer
-
-RUN wget https://github.com/samp-incognito/samp-streamer-plugin/releases/download/v2.8/streamer-plugin-2.8.zip \
+ && rm -r mysql \
+ && wget https://github.com/samp-incognito/samp-streamer-plugin/releases/download/v2.8/streamer-plugin-2.8.zip \
  && unzip streamer-plugin-2.8.zip -d streamer-plugin-2.8 \
  && mv streamer-plugin-2.8/plugins/streamer.so /samp-svr/plugins/streamer.so \
  && rm -rf streamer-plugin-2.8 \
- && rm -f streamer-plugin-2.8.zip
-
-# Plugin: Whirlpool
-
-RUN wget http://revonline.comuf.com/Whirlpool.so \
- && mv Whirlpool.so /samp-svr/plugins/Whirlpool.so
-
-# Plugin: sscanf
-
-RUN wget http://revonline.comuf.com/sscanf.so \
+ && rm -f streamer-plugin-2.8.zip \
+ && wget http://revonline.comuf.com/Whirlpool.so \
+ && mv Whirlpool.so /samp-svr/plugins/Whirlpool.so \
+ && wget http://revonline.comuf.com/sscanf.so \
  && mv sscanf.so /samp-svr/plugins/sscanf.so
 
 
