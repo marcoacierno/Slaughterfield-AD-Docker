@@ -1,9 +1,9 @@
 echo Executing Server Config...
 lanmode 0
-rcon_password testserver
+rcon_password {{.Env.SAMP_RCON_PASSWORD}}
 maxplayers 25
 port 7777
-hostname SA-MP 0.3 Server
+hostname {{.Env.SAMP_HOSTNAME}}
 gamemode0 s7ad2
 filterscripts
 announce 0
@@ -16,4 +16,3 @@ weapon_rate 40
 stream_distance 300.0
 stream_rate 1000
 plugins mysql_static.so streamer.so Whirlpool.so sscanf.so
-

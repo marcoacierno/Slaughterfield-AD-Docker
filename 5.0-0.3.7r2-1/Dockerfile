@@ -22,11 +22,12 @@ RUN wget http://files.sa-mp.com/samp037svr_R2-1.tar.gz \
  && rm -rf include npcmodes/*.pwn filterscripts/*.pwn gamemodes/*.pwn \
  && mv samp03svr samp-svr \
  && chmod 700 * \
- && mkdir plugins
+ && mkdir plugins \
+ && wget https://github.com/jwilder/dockerize/releases/download/v0.2.0/dockerize-linux-amd64-v0.2.0.tar.gz \
+ && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.2.0.tar.gz
 
 COPY samp.sh /usr/local/bin/samp
 COPY docker-entrypoint.sh /entrypoint.sh
-COPY server.cfg /samp-svr/server.cfg
 COPY geoip_city.db /samp-svr/scriptfiles/geoip_city.db
 COPY geoip.db /samp-svr/scriptfiles/geoip.db
 
@@ -38,14 +39,7 @@ RUN chmod +x /usr/local/bin/samp \
 RUN wget https://github.com/marcoacierno/Slaughterfield-AD/raw/develop/gamemodes/s7ad2.amx \
  && mv s7ad2.amx /samp-svr/gamemodes
 
-# RUN wget http://revonline.comuf.com/slaughterfield-ad/5.0-0.3.7r2-1.tar.gz \
-#  && mkdir deps \
-#  && tar xvf 5.0-0.3.7r2-1.tar.gz \
-#  && rm -f 5.0-0.3.7r2-1.zip \
-#  && cd 5.0-0.3.7r2-1/linux-plugins/ \
-#  && mv * /samp-svr/plugins/
-
-# download plugins
+# Download plugins
 
 RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39-3-debian7.tar.gz \
  && mkdir mysql \
@@ -63,9 +57,11 @@ RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39
  && wget http://revonline.comuf.com/sscanf.so \
  && mv sscanf.so /samp-svr/plugins/sscanf.so
 
+COPY slfd_mysql.tmpl /slfd_mysql.tmpl
+COPY server.cfg.tmpl /server.cfg.tmpl
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["samp", "start"]
+CMD ["dockerize", "-template", "server.cfg.tmpl:samp-svr/server.cfg", "-template", "slfd_mysql.tmpl:samp-svr/scriptfiles/slfd_mysql.ini", "-stdout", "/samp-svr/server_log.txt", "-wait", "tcp://db:3306", "samp", "start"]
 
 EXPOSE 7777/udp

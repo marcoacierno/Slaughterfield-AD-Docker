@@ -33,13 +33,6 @@ if [ "$1" = 'samp' ]; then
             sed -i "$ a\\$key $value" samp-svr/server.cfg 2>/dev/null
     done
 
-    # Write database configuration to slfd_mysql.ini
-    echo "" > samp-svr/scriptfiles/slfd_mysql.ini
-    echo "host=$DB_HOST" >> samp-svr/scriptfiles/slfd_mysql.ini
-    echo "db=$DB_DB" >> samp-svr/scriptfiles/slfd_mysql.ini
-    echo "user=$DB_USER" >> samp-svr/scriptfiles/slfd_mysql.ini
-    echo "password=$DB_PASSWORD" >> samp-svr/scriptfiles/slfd_mysql.ini
-
     IFS=$OLDIFS
     set $OLDARGS
 fi
