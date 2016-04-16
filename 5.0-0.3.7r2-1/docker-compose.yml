@@ -5,7 +5,7 @@ services:
     env_file: envs/.db.env
     container_name: db
     volumes:
-      - /home/marco/db:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d
     expose:
       - "3306"
   server:
