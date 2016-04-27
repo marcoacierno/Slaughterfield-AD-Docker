@@ -59,6 +59,6 @@ COPY etc/server.cfg.tmpl /server.cfg.tmpl
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["dockerize", "-template", "server.cfg.tmpl:samp-svr/server.cfg", "-template", "slfd_mysql.tmpl:samp-svr/scriptfiles/slfd_mysql.ini", "-stdout", "/samp-svr/server_log.txt", "-wait", "tcp://db:3306", "samp", "start"]
+CMD ["dockerize", "-template", "server.cfg.tmpl:samp-svr/server.cfg", "-template", "slfd_mysql.tmpl:samp-svr/scriptfiles/slfd_mysql.ini", "-stdout", "/samp-svr/server_log.txt", "-wait", "tcp://db:3306", "-timeout", "120s", "samp", "start"]
 
 EXPOSE 7777/udp
