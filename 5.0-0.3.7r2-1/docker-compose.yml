@@ -12,8 +12,6 @@ services:
     build: .
     image: marcoacierno/slaughterfield-ad:latest
     container_name: server
-    volumes:
-      - ./code/:/samp-svr/gamemodes/
     ports:
       - "7777:7777/udp"
     env_file: envs/.server.env
