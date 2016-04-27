@@ -37,11 +37,8 @@ RUN chmod +x /usr/local/bin/samp \
 # Copy gamemode
 
 RUN wget https://github.com/marcoacierno/Slaughterfield-AD/raw/develop/gamemodes/s7ad2.amx \
- && mv s7ad2.amx /samp-svr/gamemodes
-
-# Download plugins
-
-RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39-3-debian7.tar.gz \
+ && mv s7ad2.amx /samp-svr/gamemodes \
+ && wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39-3-debian7.tar.gz \
  && mkdir mysql \
  && tar xzf mysql-r39-3-debian7.tar.gz -C mysql \
  && rm -f mysql-r39-3-debian7.tar.gz \
