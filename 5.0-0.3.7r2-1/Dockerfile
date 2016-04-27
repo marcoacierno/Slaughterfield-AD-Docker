@@ -28,8 +28,8 @@ RUN wget http://files.sa-mp.com/samp037svr_R2-1.tar.gz \
 
 COPY samp.sh /usr/local/bin/samp
 COPY docker-entrypoint.sh /entrypoint.sh
-COPY geoip_city.db /samp-svr/scriptfiles/geoip_city.db
-COPY geoip.db /samp-svr/scriptfiles/geoip.db
+COPY etc/geoip_city.db /samp-svr/scriptfiles/geoip_city.db
+COPY etc/geoip.db /samp-svr/scriptfiles/geoip.db
 
 RUN chmod +x /usr/local/bin/samp \
  && chmod +x /entrypoint.sh
@@ -57,8 +57,8 @@ RUN wget https://github.com/pBlueG/SA-MP-MySQL/releases/download/R39-3/mysql-r39
  && wget http://revonline.comuf.com/sscanf.so \
  && mv sscanf.so /samp-svr/plugins/sscanf.so
 
-COPY slfd_mysql.tmpl /slfd_mysql.tmpl
-COPY server.cfg.tmpl /server.cfg.tmpl
+COPY etc/slfd_mysql.tmpl /slfd_mysql.tmpl
+COPY etc/server.cfg.tmpl /server.cfg.tmpl
 
 ENTRYPOINT ["/entrypoint.sh"]
 
