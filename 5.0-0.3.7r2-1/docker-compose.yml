@@ -1,4 +1,4 @@
---- 
+version: "2"
 services: 
   db: 
     container_name: db
@@ -21,7 +21,6 @@ services:
       - "db:db"
     ports: 
       - "7777:7777/udp"
-version: "2"
 volumes: 
   mysqldata: 
     driver: local
